@@ -41,16 +41,16 @@ public class FinalResults {
 
     public void printFinalResults() {
 
-        System.out.printf("[MONTE CARLO SIMULATION - PI ESTIMATION]%n%n");
+        System.out.printf("[MONTE CARLO METHOD SIMULATION - PI ESTIMATION]%n%n");
 
-        System.out.printf("---- Results of the Monte Carlo Simulation [%s] ----%n", this.programVersion);
+        System.out.printf("---- RESULTS [%s] ----%n", this.programVersion);
         System.out.printf("Total Number of Points: %d%n", this.totalNumPoints);
         System.out.printf("Points within circle: %d%n", this.insideHitsCount);
         System.out.printf("Pi Estimation: %.6f%n", this.piEstimation);
 
         System.out.printf("%n");
 
-        System.out.printf("---- Performance of the Monte Carlo Simulation [%s] ----%n", this.programVersion);
+        System.out.printf("---- PERFORMANCE [%s] ----%n", this.programVersion);
         System.out.printf("Real Time: %.3fs%n", this.executionRealTimeSecs);
         System.out.printf("CPU Time: %.3fs%n", this.executionCPUTimeSecs);
         System.out.printf("User Time: %.3fs%n", this.executionUserTimeSecs);
