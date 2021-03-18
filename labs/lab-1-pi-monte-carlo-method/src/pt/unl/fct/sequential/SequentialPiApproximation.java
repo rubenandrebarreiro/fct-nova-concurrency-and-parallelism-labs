@@ -6,16 +6,12 @@ public class SequentialPiApproximation {
 
     private int insideHitsCount;
 
-    private boolean finished;
-
 
     public SequentialPiApproximation(int numPoints) {
 
         this.numPoints = numPoints;
 
         this.insideHitsCount = 0;
-
-        this.finished = false;
 
     }
 
@@ -36,25 +32,17 @@ public class SequentialPiApproximation {
 
         }
 
-        this.finished = true;
-
     }
 
-    public int getNumPoints() {
+    public int getTotalNumPoints() {
 
         return this.numPoints;
 
     }
 
-    public int getHitsCount() {
+    public int getInsideHitsCount() {
 
-        return (this.finished)? this.insideHitsCount : -1;
-
-    }
-
-    public boolean isFinished() {
-
-        return this.finished;
+        return this.insideHitsCount;
 
     }
 
