@@ -1,0 +1,112 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Uppsala University Assignment Title Page 
+% LaTeX Template
+% Version 1.0 (27/12/12)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% WikiBooks (http://en.wikibooks.org/wiki/LaTeX/Title_Creation)
+% Modified by Elsa Slattegard to fit Uppsala university
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+
+%\title{Title page with logo}
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[12pt]{article}
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{hyperref}
+\usepackage[colorinlistoftodos]{todonotes}
+
+\begin{document}
+
+    \begin{titlepage}
+    
+    \newcommand{\HRule}{\rule{\linewidth}{0.5mm}} % Defines a new command for the horizontal lines, change thickness here
+    
+    \center % Center everything on the page
+     
+    %----------------------------------------------------------------------------------------
+    %	HEADING SECTIONS
+    %----------------------------------------------------------------------------------------
+    
+    \textsc{\LARGE{Nova School of\\[0.25cm]Science and Technology}}\\[1cm] % Name of your university/college
+    \begin{figure}[H]
+        \centering
+        \begin{minipage}{.5\textwidth}
+            \centering
+            \includegraphics[width=.8\linewidth]{figures/logos/nova-university-lisbon-logo.png}
+        \end{minipage}%
+        \begin{minipage}{.5\textwidth}
+            \centering
+            \vspace{-0.2cm}
+            \includegraphics[width=.9\linewidth]{figures/logos/nova-school-science-and-technology-logo.png}
+        \end{minipage}
+    \end{figure}
+    \vspace{0.5cm}
+     % Include a department/university logo - this will require the graphicx package
+    \textsc{\Large Concurrency and Parallelism}\\[0.5cm] % Major heading such as course name
+    \textsc{Master in Computer Science and Engineering}\\[0.5cm] % Minor heading such as course title
+    \textsc{\large 2020/2021 - 2\textsuperscript{nd} Semester}\\[0.5cm] % Minor heading such as course title
+    
+    %----------------------------------------------------------------------------------------
+    %	TITLE SECTION
+    %----------------------------------------------------------------------------------------
+    
+    \HRule \\[0.8cm]
+        { \huge \bfseries Lecture and Lab Notes}\\[0.4cm] % Title of your document
+    \HRule \\[1.5cm]
+     
+    %----------------------------------------------------------------------------------------
+    %	AUTHOR SECTION
+    %----------------------------------------------------------------------------------------
+    
+    \begin{minipage}{0.75\textwidth}
+    
+        \begin{flushleft} \large
+            \textbf{Author(s):}\\
+            \begin{itemize}
+                \vspace{-0.1cm}
+                \item \normalsize{Rúben \textsc{Barreiro} - \href{mailto:r.barreiro@campus.fct.unl.pt}{\emph{r.barreiro@campus.fct.unl.pt}}}
+            \end{itemize}
+        \end{flushleft}
+    
+    \end{minipage}\\[2cm]
+    
+    % If you don't want a supervisor, uncomment the two lines below and remove the section above
+    %\Large \emph{Author:}\\
+    %John \textsc{Smith}\\[3cm] % Your name
+    
+    %----------------------------------------------------------------------------------------
+    %	DATE SECTION
+    %----------------------------------------------------------------------------------------
+    
+    {\large{Last updated: \today}}\\[2cm] % Date, change the \today to a set date if you want to be precise
+    
+    \vfill % Fill the rest of the page with whitespace
+
+    \end{titlepage}
+
+    \newpage
+    
+    
+    % ------------- Week 1 -------------
+    
+    \include{lectures/lecture-1/lecture-1A}
+    
+    \include{lectures/lecture-1/lecture-1B}
+    
+    \include{labs/lab-1}
+    
+    % ------------- Week 1 -------------
+    
+    
+\end{document}

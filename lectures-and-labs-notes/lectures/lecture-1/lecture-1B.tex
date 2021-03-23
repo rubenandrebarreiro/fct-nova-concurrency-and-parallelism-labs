@@ -1,0 +1,353 @@
+\section*{\Large{\textbf{Lecture 1B - Parallel Programming Models and Architectures}} \small{(March 15, 2021)}}
+\label{sec:lecture-1B}
+
+\subsection*{\large{\textbf{1B.1. Introduction}}}
+\label{ssec:lecture-1B1}
+
+\noindent All \emph{Classical Computers} are now \textbf{parallel}, specially, the modern ones, which support \textbf{parallelism} in \emph{hardware}, through, at least, one \emph{parallel feature}:
+\begin{itemize}
+    \vspace{-0.1cm}
+    \item \emph{Vector Instructions};
+    \vspace{-0.1cm}
+    \item \emph{Multi-threaded Cores};
+    \vspace{-0.1cm}
+    \item \textbf{\emph{Multicore Processors}};
+    \vspace{-0.1cm}
+    \item \emph{Multiple Processors};
+    \vspace{-0.1cm}
+    \item \emph{Graphics Engines};
+    \vspace{-0.1cm}
+    \item \emph{Parallel Co-Processors};
+\end{itemize}
+
+\noindent This statement does not apply only to \emph{supercomputers}, but even the \emph{smallest} computers, such as \emph{phones}, support many of these features, where, it is necessary to use explicit \textbf{\emph{parallel programming}} to get the most of them.
+
+The \emph{automatic approaches} to \emph{parallelizing} \emph{serial code} \textbf{\emph{cannot}} deal with the shifts in the \emph{algorithm's structures} required for effective \emph{parallelization}.
+
+A \emph{programmer}, in a \emph{modern computing environment}, should not just take advantage of \emph{processors} with \emph{multi-cores}, but, must be able to write \textbf{\emph{scalable}} \emph{applications}, that can take advantage of \textbf{any} amount of \textbf{\emph{parallel hardware}}.
+
+\vspace{0.35cm}
+
+\noindent The feature of \textbf{\emph{scaling}} requires attention to many factors:
+\begin{itemize}
+    \vspace{-0.2cm}
+    \item \emph{Minimization of Data Movement};
+    \vspace{-0.2cm}
+    \item \emph{Serial Bottlenecks} (including \emph{Locking});
+    \vspace{-0.2cm}
+    \item Other forms of \emph{Overhead};
+\end{itemize}
+
+\noindent Some \textbf{\emph{Parallel Patterns}} can help with this factors, but ultimately, is a responsibility of the \emph{software developer} to produce a \textbf{\emph{good}} \emph{algorithm design}.
+
+In the recent years, it were also made some progress in other \emph{paradigm} of \emph{computing}, known as, \textbf{\emph{Quantum Computing}}, which is also, \emph{inherently} \textbf{\emph{parallel}}, taking advantage of the \textbf{quantum parallelism} offered on the \emph{atomic} and\emph{sub-atomic} levels of \textbf{\emph{elementary particles}}, such as, \textbf{photons}.
+
+\newpage
+
+\subsection*{\large{\textbf{1B.2. Think Parallel}}}
+\label{ssec:lecture-1B2}
+
+\noindent The \textbf{\emph{Parallelism}} is an \emph{intuitive} and \emph{common} \emph{human experience}, where, \emph{programmers} naturally accept the concept of \emph{parallel work} via a \emph{group of workers}, often with \emph{specializations}, in order to achieve a \emph{major goal}.
+
+\vspace{0.35cm}
+
+\noindent Some \emph{important} and \emph{relevant} notions are:
+\begin{itemize}
+    \vspace{-0.2cm}
+    \item \textbf{\emph{Serialization}}:
+    \vspace{-0.2cm}
+    \begin{itemize}
+        \item Act of putting some set of operations into a specific order; 
+    \end{itemize}
+    \vspace{-0.2cm}
+    \item \textbf{\emph{Serial Semantics}}:
+    \vspace{-0.2cm}
+    \begin{itemize}
+        \item \emph{Semantics} used even though the \emph{hardware} was naturally \emph{parallel}; 
+    \end{itemize}
+    \vspace{-0.2cm}
+    \item \textbf{\emph{Serial Illusion}}:
+    \vspace{-0.2cm}
+    \begin{itemize}
+        \item \emph{Mental model} of a \emph{computer} executing operations, \emph{sequentially};
+        \item Has the problem of programmers came to depend on it too much;
+    \end{itemize}
+\end{itemize}
+
+\noindent The \textbf{\textit{Serialization}} has its own \emph{benefits}, such as, if someone reads a piece of \emph{serial code} from top to bottom, will also be able to understand the \emph{temporal order} of operations from the structure of the \emph{source code}.
+
+It helps that modern \emph{programming languages} have evolved to use some \emph{structured} \emph{control flow} to emphasize this aspect of \emph{serial semantics}.
+
+Unless it was intentionally injected \emph{randomness}, the \emph{serial programs} are \textbf{\emph{deterministic}}, doing always the same operations in the same order, giving the \emph{same answer}, every time you run them with the \emph{same inputs}.
+
+The \textbf{\emph{Determinism}} is useful for \emph{debugging}, \emph{verification}, and \emph{testing}, but the \emph{deterministic behavior} is not a natural characteristic of \emph{parallel programs}.
+
+Generally speaking, the \emph{timing} of \emph{task execution} in \emph{parallel programs}, in particular the \emph{relative timing}, is often \textbf{\emph{Non-Deterministic}}.
+
+Given that \emph{parallelism} is necessary for \emph{performance}, it would be useful to find an effective approach to \emph{parallel programming} that retains as many of the benefits of \emph{serialization} as possible, yet is also similar to existing practice.
+
+Some of the known \textbf{\emph{Parallel Patterns}} provide \emph{structure} but they can also avoid the existing \textbf{Non-Determinism}, with a few easily visible exceptions where it is \emph{unavoidable} or \emph{necessary} for a better \emph{performance}.
+
+When eliminating \emph{unnecessary} \emph{serialization}, leading to \emph{poor performance}, the current \emph{programming tools} may have many \textbf{\emph{serial traps}} built into them.
+
+\newpage
+
+\noindent The \textbf{\emph{serial traps}} are constructs that make, often \emph{unnecessary}, their \emph{serial assumptions} and they can also exist in the \emph{design} of \emph{algorithms} and in the abstractions used, to estimate the respective \emph{complexity} and \emph{performance}.
+
+\vspace{0.35cm}
+
+\noindent Often, there are two main steps to \emph{think} and \emph{program} in \emph{parallel}:
+\begin{enumerate}
+    \vspace{-0.2cm}
+    \item Learning to recognize \textbf{\emph{serial traps}};
+    \vspace{-0.2cm}
+    \item Programming in terms of \textbf{\emph{Parallel Patterns}} that capture their best practices and using \emph{efficient} implementations of these \emph{patterns};
+\end{enumerate}
+
+\noindent The most difficult part of learning to \emph{program} in \emph{parallel} is \emph{recognizing} and \emph{avoiding} \textbf{\emph{serial traps}} (i.e., \emph{assumptions} of \emph{serial ordering}).
+
+These assumptions are so \emph{common} that, their existence is unnoticed and most of the \emph{programming languages} \emph{unnecessarily} overconstrain the \emph{execution order}, making the \emph{parallel execution} of their \emph{programs} to be difficult.
+
+\emph{Parallelizing} \emph{serial} \emph{programs} written using \emph{iteration} \emph{constructs}, requires to be \emph{recognized} the \emph{semantics} used and \emph{convert} them to the appropriate \emph{parallel structure} and even better would be to \emph{design} \emph{programs} using them.
+
+\vspace{0.5cm}
+
+\subsection*{\large{\textbf{1B.3. Vocabulary and Notation}}}
+\label{ssec:lecture-1B3}
+
+\noindent The two fundamental components of algorithms are \textbf{\emph{tasks}} and \textbf{\emph{data}}, where a \textbf{\emph{task}} operates on \textbf{\emph{data}}, either \emph{modifying} it in place or \emph{creating} new \textbf{\emph{data}}.
+
+In a \emph{parallel computation}, the \emph{multiple tasks} need to be \emph{managed} and \emph{coordinated}, where, in particular, \textbf{\emph{dependencies}} between \textbf{\emph{tasks}} need to be \emph{respected}, regarding their particular \emph{ordering} of \emph{execution}.
+
+\vspace{0.35cm}
+
+\noindent The \textbf{\emph{dependencies}} are often but not always associated with the transfer of \textbf{\emph{data}}, between \textbf{\emph{tasks}} and can be categorised as the following two kinds:
+\begin{itemize}
+    \vspace{-0.2cm}
+    \item \textbf{\emph{Data Dependency}}:
+    \begin{itemize}
+        \vspace{-0.2cm}
+        \item \textbf{\emph{Tasks}} that \textbf{\emph{cannot}} be executed, before some of its required \textbf{\emph{data}} be ready, which can be generated by other \textbf{\emph{tasks}};
+    \end{itemize}
+    \vspace{-0.2cm}
+    \item \textbf{\emph{Control Dependency}}:
+    \begin{itemize}
+        \vspace{-0.2cm}
+        \item \emph{Events} or \emph{side effects}, such as, the ones happening due to some \emph{I/O operations}, which need to be \emph{ordered}, in time;
+    \end{itemize}
+\end{itemize}
+
+\newpage
+
+\noindent For the \emph{task management}, there is the \textbf{\emph{fork-join}} \emph{pattern}, where can exist:
+\begin{itemize}
+    \vspace{-0.2cm}
+    \item \textbf{Fork Points}:
+    \vspace{-0.2cm}
+    \begin{itemize}
+        \item New \emph{serial} \emph{control flows} are created, by \emph{splitting} an existing \emph{serial} \emph{control flow}, previously executed;
+    \end{itemize}
+    \vspace{-0.2cm}
+    \item \textbf{Join Points}:
+    \vspace{-0.2cm}
+    \begin{itemize}
+        \item Two \emph{separate} executed \emph{serial} \emph{control flows} which are \emph{synchronized}, by \emph{merging} them together in one \emph{serial} \emph{control flow};
+    \end{itemize}
+\end{itemize}
+
+\noindent In a \emph{single} \emph{serial} \emph{control flow}, the \textbf{\emph{tasks}} are \emph{ordered}, according to the \emph{serial semantics}, and due to the implicit \emph{serial} \emph{control flow} before and after these \emph{points}, the \textbf{\emph{control dependencies}} are also needed between \textbf{\emph{fork}} and \textbf{\emph{join}} \textbf{\emph{points}} and the \textbf{\emph{tasks}} that \emph{precede} and \emph{follow} them, respectively.
+
+\vspace{0.5cm}
+
+\subsection*{\large{\textbf{1B.4. Simple Approaches to Parallelization}}}
+\label{ssec:lecture-1B4}
+
+\noindent Some simple approaches for \emph{parallelization} are:
+\begin{itemize}
+    \item \textbf{\emph{Distributed Memory}}:
+    \vspace{-0.2cm}
+    \begin{itemize}
+        \item \emph{Parallel system} based on \emph{processors} \textbf{\emph{linked}} with a \emph{fast network};
+        \item The \emph{processors} \textbf{\emph{communicate}} with each other, via \emph{messages};
+    \end{itemize}
+    \item \textbf{\emph{Owner Computes}}:
+    \vspace{-0.2cm}
+    \begin{itemize}
+        \item \emph{Distribute} the \textbf{\emph{data}} \emph{elements} to \emph{processors};
+        \item Each \emph{processor} \emph{updates} its own \textbf{\emph{data}} \emph{elements};
+    \end{itemize}
+    \item \textbf{\emph{Single Program, Multiple Data}} (\textbf{\emph{SPMD}}):
+    \vspace{-0.2cm}
+    \begin{itemize}
+        \item All \emph{machines} run the \textbf{\emph{same}} \emph{program} on \emph{independent} \textbf{\emph{data}};
+        \item The \emph{dominant} form of \emph{parallel computing};
+    \end{itemize}
+\end{itemize}
+
+\noindent For \textbf{\emph{Shared Memory}}, the \emph{latency} of \emph{communication} between the \emph{processors} is \emph{low}, while, for the \textbf{\emph{Distributed Systems}}, occurs the opposite, with \emph{high} \emph{latencies} on the \emph{communications} between the \emph{processors}, where this \emph{drawback} can be solved, by keeping some \textbf{\emph{data}} \emph{elements} of other \emph{processors} \emph{locally}, with what is called \textbf{\emph{ghost cells}}, \emph{decreasing} a \emph{latency} of its \emph{communications}.
+
+\newpage
+
+\subsection*{\large{\textbf{1B.5. Flynn's Characterization}}}
+\label{ssec:lecture-1B5}
+
+\noindent The \emph{parallel processors} can be divided into categories based on whether they have \emph{multiple} \textbf{\emph{flows of control}}, \emph{multiple} \textbf{\emph{streams of data}}, or on both:
+\begin{itemize}
+    \vspace{-0.2cm}
+    \item \textbf{\emph{Single Instruction, Single Data}} (\textbf{\emph{SISD}}):
+    \begin{itemize}
+        \vspace{-0.2cm}
+        \item \emph{Standard} \emph{non-parallel} \emph{processor}, often referred as \emph{scalar processor};
+        \item The \emph{individual} \emph{performance} of \emph{scalar processing} is important, since if it is slow, it can end up \emph{dominating} the \emph{global performance};
+    \end{itemize}
+    \item \textbf{\emph{Single Instruction, Multiple Data}} (\textbf{\emph{SIMD}}):
+    \begin{itemize}
+        \vspace{-0.2cm}
+        \item \emph{Single} \emph{task} \emph{executing} simultaneously on \emph{multiple} \emph{elements} of \emph{data};
+        \item The number of \emph{data elements} in a \emph{SIMD}'s \emph{operation} can vary from a small number, such as the 4 to 16 elements in short \emph{vector instructions}, to thousands, as in \emph{streaming vector processors};
+        \item The \emph{SIMD processors} are also known as \emph{array processors}, since consist on an \emph{array} of \emph{functional units} with a \emph{shared controller};
+    \end{itemize}
+    \item \textbf{\emph{Multiple Instruction, Single Data}} (\textbf{\emph{MISD}}):
+    \begin{itemize}
+        \vspace{-0.2cm}
+        \item Not particularly useful and is not used;
+    \end{itemize}
+    \item \textbf{\emph{Multiple Instruction, Multiple Data}} (\textbf{\emph{MIMD}}):
+    \begin{itemize}
+        \vspace{-0.2cm}
+        \item Separated \emph{streams} of \textbf{\emph{instructions}} and \textbf{\emph{tasks}}, each one with its own \emph{flow of control}, operating on separated \textbf{\emph{data}} \emph{elements};
+        \item Defines \emph{multiple cores} in a \emph{single processor}, \emph{multiple processors} in a \emph{single computer}, and \emph{multiple computers} in a \emph{single cluster};
+        \item Represents a \textbf{\emph{heterogeneous computer}}, as \emph{multiple processors} using \emph{different} \emph{architectures}, present in the \emph{same} \emph{computer system};
+        \item An example would be a \emph{host processor} and a \emph{co-processor} with \emph{different} sets of \textbf{\emph{instructions}} and \textbf{\emph{tasks}};
+    \end{itemize}
+\end{itemize}
+
+\newpage
+
+\subsection*{\large{\textbf{1B.7. Software Taxonomies}}}
+\label{ssec:lecture-1B7}
+
+\noindent Some commonly used \emph{Software Taxonomies} are the following ones:
+\begin{itemize}
+    \vspace{-0.2cm}
+    \item \textbf{\emph{Data Parallel}} (\textbf{\emph{SIMD}}):
+    \vspace{-0.2cm}
+    \begin{itemize}
+        \item \emph{Parallelism} that is a result of \emph{identical} \emph{operations} being applied \emph{concurrently} on \emph{different} \emph{data elements} (e.g., \emph{matrix algorithms});
+        \item Difficult to apply it to some \emph{complex problems};
+    \end{itemize}
+    \vspace{-0.2cm}
+    \item \textbf{\emph{Single Program, Multiple Data}} (\textbf{\emph{SPMD}}):
+    \vspace{-0.2cm}
+    \begin{itemize}
+        \item A \emph{single} \emph{application} is executing across \emph{multiple} \emph{processes/threads} on a \emph{MIMD} \emph{architecture};
+        \item Most processes execute the same code but do not work in \emph{lock-step};
+        \item \emph{Dominant} form of \emph{parallel programming};
+    \end{itemize}
+\end{itemize}
+
+\subsection*{\large{\textbf{1B.8. Shared Memory (SM)}}}
+\label{ssec:lecture-1B7}
+
+\begin{itemize}
+    \item \textbf{\emph{Attributes}}:
+    \vspace{-0.2cm}
+    \begin{itemize}
+        \item Has \emph{global} \emph{memory space};
+        \item A \emph{processor} use its own \emph{cache} for a part of \emph{global} \emph{memory space};
+        \item The \emph{consistency} of the \emph{cache} is maintained by \emph{hardware};
+    \end{itemize}
+    \item \textbf{\emph{Advantages}}:
+    \vspace{-0.2cm}
+    \begin{itemize}
+        \item \emph{User-friendly} \emph{programming} techniques (\emph{OpenMP} and \emph{OpenACC});
+        \item Has \emph{low} \emph{latency} for \emph{data sharing} between \textbf{\emph{tasks}};
+    \end{itemize}
+    \item \textbf{\emph{Disadvantages}}:
+    \vspace{-0.2cm}
+    \begin{itemize}
+        \item Has \emph{global} \emph{memory} \emph{space-to-CPU} path may be a \emph{bottleneck};
+        \item Has \emph{Non-Uniform Memory Access} (\emph{NUMA});
+        \item The \emph{programmer} is responsible for the details of \emph{synchronization};
+    \end{itemize}
+\end{itemize}
+
+\newpage
+
+\subsection*{\large{\textbf{1B.9. Distributed Memory (DM)}}}
+\label{ssec:lecture-1B9}
+
+\begin{itemize}
+    \item \textbf{\emph{Attributes}}:
+    \vspace{-0.2cm}
+    \begin{itemize}
+        \item The \emph{memory} is \emph{shared} amongst \emph{processors} via \emph{message passing};
+    \end{itemize}
+    \item \textbf{\emph{Advantages}}:
+    \vspace{-0.2cm}
+    \begin{itemize}
+        \item The \emph{memory} \emph{scales} based on the number of \emph{processors};
+        \item The access to a \emph{processor}'s own \emph{memory} is \emph{fast};
+        \item Is \emph{cost effective};
+    \end{itemize}
+    \item \textbf{\emph{Disadvantages}}:
+    \vspace{-0.2cm}
+    \begin{itemize}
+        \item Is \emph{error prone};
+        \item The \emph{programmer} is responsible for the details of \emph{communication};
+        \item The \emph{complex} \emph{data structures} may be difficult to \emph{distribute};
+    \end{itemize}
+\end{itemize}
+
+\subsection*{\large{\textbf{1B.10. Software/Hardware Models}}}
+\label{ssec:lecture-1B10}
+
+\noindent The \emph{Software} and \emph{Hardware} models \textbf{\emph{do not}} need to match:
+
+\vspace{-0.2cm}
+\begin{itemize}
+    \item \textbf{\emph{Distributed Memory}} \emph{software} on \textbf{\emph{Shared Memory}} \emph{hardware}:
+    \vspace{-0.2cm}
+    \begin{itemize}
+        \item \textbf{\emph{Message Passing Interface}} (\textbf{\emph{MPI}}), which is designed for \textbf{\emph{Distributed Memory}} (\textbf{\emph{DM}}) \emph{hardware} but is also available on \textbf{\emph{Shared Memory}} (\textbf{\emph{SM}}) \emph{systems};
+    \end{itemize}
+    \item \textbf{\emph{Shared Memory}} \emph{software} on \textbf{\emph{Distributed Memory}} \emph{hardware}:
+    \vspace{-0.2cm}
+    \begin{itemize}
+        \item \textbf{\emph{Remote Memory Access}} (\textbf{\emph{RMA}}) included within \textbf{\emph{MPI-3}};
+        \item \textbf{\emph{Partitioned Global Address Space}} (\textbf{\emph{PGAS}}) \emph{languages}:
+        \begin{itemize}
+            \item \textbf{\emph{Unified Parallel C}} (extension to \textbf{ISO C 99});
+            \item \textbf{\emph{Coarray Fortran}} (\textbf{Fortran 2008});
+        \end{itemize}
+    \end{itemize}
+\end{itemize}
+
+\newpage
+
+\subsection*{\large{\textbf{1B.11. Difficulties of Parallelization}}}
+\label{ssec:lecture-1B11}
+
+\noindent There are some common difficulties on \textbf{\emph{Parallelization}}, such as:
+
+\vspace{-0.2cm}
+\begin{itemize}
+    \item The \textbf{\emph{serialization}} causes \textbf{\emph{bottlenecks}};
+    \item The \textbf{\emph{workload}} is not \emph{distributed};
+    \item The \textbf{\emph{debugging}} is \textbf{\emph{hard}};
+    \item The \textbf{\emph{serial}} approach \textbf{does not} \textbf{\emph{parallelize}};
+\end{itemize}
+
+\subsection*{\large{\textbf{1B.12. Performance}}}
+
+\noindent Often, one of the most common \textbf{\emph{serial traps}} is the habit of discussing the \emph{performance} of the \emph{algorithms}, focusing only on the \emph{minimization} of the \emph{total amount} of \emph{computational work} to be done, in \emph{parallel programming}.
+
+\vspace{0.35cm}
+
+\noindent From this common habit, comes two main problems, such as:
+\vspace{-0.2cm}
+\begin{itemize}
+    \item The \emph{computation} itself, may not be the \textbf{\emph{bottleneck}}, since, the \emph{access} to \emph{memory} or its \emph{communication} may constrain the \emph{performance};
+    \vspace{-0.1cm}
+    \item The \emph{potential} for \emph{scaling performance} on a \emph{parallel computer} is always constrained by the \emph{algorithm's span}, which is the \emph{execution time} needed for the longest \emph{chain of tasks} that, must be performed \emph{sequentially};
+\end{itemize}
