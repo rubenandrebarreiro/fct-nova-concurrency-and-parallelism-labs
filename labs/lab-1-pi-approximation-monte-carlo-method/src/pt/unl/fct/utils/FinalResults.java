@@ -70,6 +70,11 @@ public class FinalResults {
      */
     private final double executionSystemTimeSecs;
 
+    /**
+     * The Boolean Flag for the Logging of the Performance of the Simulation
+     */
+    private final boolean loggingPerformanceBooleanFlag;
+
 
     // Constructors:
 
@@ -89,12 +94,14 @@ public class FinalResults {
      * @param endCPUTimeNSecs the CPU Time, in nanoseconds, at the End of the Simulation
      * @param startUserTimeNSecs the User Time, in nanoseconds, at the Start of the Simulation
      * @param endUserTimeNSecs the User Time, in nanoseconds, at the End of the Simulation
+     * @param loggingPerformanceBooleanFlag the Boolean Flag for the Logging of the Performance of the Simulation
      */
     public FinalResults(String programVersion, int numThreads,
                         int totalNumPoints, int insideHitsCount,
                         long startRealTimeNSecs, long endRealTimeNSecs,
                         long startCPUTimeNSecs, long endCPUTimeNSecs,
-                        long startUserTimeNSecs, long endUserTimeNSecs) {
+                        long startUserTimeNSecs, long endUserTimeNSecs,
+                        boolean loggingPerformanceBooleanFlag) {
 
         this.programVersion = programVersion.toUpperCase(Locale.ROOT);
         this.numThreads = (this.programVersion.equalsIgnoreCase("PARALLEL")) ? numThreads : 1;
@@ -109,6 +116,8 @@ public class FinalResults {
         this.executionUserTimeSecs = (endUserTimeNSecs - startUserTimeNSecs) / 1E9;
         this.executionSystemTimeSecs = (this.executionCPUTimeSecs - this.executionUserTimeSecs) / 1E9;
 
+        this.loggingPerformanceBooleanFlag = loggingPerformanceBooleanFlag;
+
     }
 
 
@@ -122,7 +131,7 @@ public class FinalResults {
         System.out.printf("[MONTE CARLO METHOD SIMULATION - PI ESTIMATION]%n%n");
 
         // If the Program's Version is set as Parallel
-        if(this.programVersion.equalsIgnoreCase("PARALLEL")) {
+        if (this.programVersion.equalsIgnoreCase("PARALLEL")) {
 
             System.out.printf("---- RESULTS [%s, with %d Threads] ----%n", this.programVersion, this.numThreads);
 
@@ -141,24 +150,29 @@ public class FinalResults {
 
         System.out.printf("%n");
 
-        // If the Program's Version is set as Parallel
-        if(this.programVersion.equalsIgnoreCase("PARALLEL")) {
+        // If the Boolean Flag for the Logging of the Performance of the Simulation is set to True
+        if (this.loggingPerformanceBooleanFlag) {
 
-            System.out.printf("---- PERFORMANCE [%s, with %d Threads] ----%n", this.programVersion, this.numThreads);
+            // If the Program's Version is set as Parallel
+            if (this.programVersion.equalsIgnoreCase("PARALLEL")) {
+
+                System.out.printf("---- PERFORMANCE [%s, with %d Threads] ----%n", this.programVersion, this.numThreads);
+
+            }
+            // If the Program's Version is set as Sequential
+            else {
+
+                System.out.printf("---- PERFORMANCE [%s] ----%n", this.programVersion);
+
+            }
+
+            // Prints the Information of the Global Performance of the Simulation
+            System.out.printf("Real Time: %.3fs%n", this.executionRealTimeSecs);
+            System.out.printf("CPU Time: %.3fs%n", this.executionCPUTimeSecs);
+            System.out.printf("User Time: %.3fs%n", this.executionUserTimeSecs);
+            System.out.printf("System Time: %.3fs%n", this.executionSystemTimeSecs);
 
         }
-        // If the Program's Version is set as Sequential
-        else {
-
-            System.out.printf("---- PERFORMANCE [%s] ----%n", this.programVersion);
-
-        }
-
-        // Prints the Information of the Global Performance of the Simulation
-        System.out.printf("Real Time: %.3fs%n", this.executionRealTimeSecs);
-        System.out.printf("CPU Time: %.3fs%n", this.executionCPUTimeSecs);
-        System.out.printf("User Time: %.3fs%n", this.executionUserTimeSecs);
-        System.out.printf("System Time: %.3fs%n", this.executionSystemTimeSecs);
 
     }
 

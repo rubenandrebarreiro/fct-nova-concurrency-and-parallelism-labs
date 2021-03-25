@@ -36,13 +36,13 @@ public class Main {
     public static void main(String[] args) throws InterruptedException {
 
         // If it were provided a wrong number of arguments
-        if(args.length == 0 || args.length > 3) {
+        if(args.length == 0 || args.length > 4) {
 
             // If the program does not receive the expected arguments,
             // it will print an error message, providing a suggestion of the
             // arguments needed
             System.err.println("Error: Wrong arguments!!!");
-            System.err.println("Usage: PiMonteCarloMethod program_version num_points [num_threads]");
+            System.err.println("Usage: PiMonteCarloMethod.jar program_version num_points [logging] [num_threads]");
             System.err.println("Run: \"PiMonteCarloMethod help\" for help...");
 
             // Wrong Command-Line argument(s)
@@ -74,6 +74,9 @@ public class Main {
                 // The number of points for the Monte Carlo Simulation and Pi Approximation
                 int numPoints = Integer.parseInt(args[1]);
 
+                // Set the boolean flag for the Logging of the Performance
+                boolean loggingPerformanceBooleanFlag = ( args.length >= 3 && Boolean.parseBoolean(args[2]) );
+
                 // It was chosen the Parallel Version, for the Simulation, with a given number of Threads
                 if(programVersion.equalsIgnoreCase("PARALLEL")) {
 
@@ -82,8 +85,7 @@ public class Main {
 
                     // Try to use the specified number of Threads, otherwise,
                     // it will be used the number of Available Processors
-                    int numThreads = (args.length == 3) ? Integer.parseInt(args[2]) : numAvailableProcessors;
-
+                    int numThreads = (args.length == 4) ? Integer.parseInt(args[3]) : numAvailableProcessors;
 
                     // The specified number of Threads to use is bigger than the number of Available Processors
                     if(numThreads > numAvailableProcessors) {
@@ -133,7 +135,8 @@ public class Main {
                                                                  numTotalPoints, insideHitsCount,
                                                                  startRealTimeNSecs, endRealTimeNSecs,
                                                                  startCPUTimeNSecs, endCPUTimeNSecs,
-                                                                 startUserTimeNSecs, endUserTimeNSecs);
+                                                                 startUserTimeNSecs, endUserTimeNSecs,
+                                                                 loggingPerformanceBooleanFlag);
 
                     // Print the Final Results
                     finalResults.printFinalResults();
@@ -142,7 +145,7 @@ public class Main {
                 else {
 
                     // It was chosen the Sequential Version, for the Simulation
-                    if(programVersion.equalsIgnoreCase("SEQUENTIAL") && args.length == 2) {
+                    if(programVersion.equalsIgnoreCase("SEQUENTIAL") && args.length <= 3) {
 
                         // Get the ThreadMXBean, for monitoring the Multi-Threading Factoring
                         ThreadMXBean threadMXBean = ManagementFactory.getThreadMXBean();
@@ -174,7 +177,8 @@ public class Main {
                                                                      numTotalPoints, insideHitsCount,
                                                                      startRealTimeNSecs, endRealTimeNSecs,
                                                                      startCPUTimeNSecs, endCPUTimeNSecs,
-                                                                     startUserTimeNSecs, endUserTimeNSecs);
+                                                                     startUserTimeNSecs, endUserTimeNSecs,
+                                                                     loggingPerformanceBooleanFlag);
 
                         // Print the Final Results
                         finalResults.printFinalResults();
