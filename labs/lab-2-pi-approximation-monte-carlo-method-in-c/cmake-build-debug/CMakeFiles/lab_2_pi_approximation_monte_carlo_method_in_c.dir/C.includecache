@@ -1,0 +1,46 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/rubenandrebarreiro/CLionProjects/lab-2-pi-approximation-monte-carlo-method-in-c/main.c
+stdio.h
+-
+string.h
+-
+ctype.h
+-
+stdlib.h
+-
+sys/sysinfo.h
+-
+sequential_version/pi_approximation_monte_carlo_sequential_version.h
+/home/rubenandrebarreiro/CLionProjects/lab-2-pi-approximation-monte-carlo-method-in-c/sequential_version/pi_approximation_monte_carlo_sequential_version.h
+parallel_version/pi_approximation_monte_carlo_parallel_version.h
+/home/rubenandrebarreiro/CLionProjects/lab-2-pi-approximation-monte-carlo-method-in-c/parallel_version/pi_approximation_monte_carlo_parallel_version.h
+
+/home/rubenandrebarreiro/CLionProjects/lab-2-pi-approximation-monte-carlo-method-in-c/parallel_version/pi_approximation_monte_carlo_parallel_version.c
+stdlib.h
+-
+stdio.h
+-
+time.h
+-
+pthread.h
+-
+
+/home/rubenandrebarreiro/CLionProjects/lab-2-pi-approximation-monte-carlo-method-in-c/parallel_version/pi_approximation_monte_carlo_parallel_version.h
+
+/home/rubenandrebarreiro/CLionProjects/lab-2-pi-approximation-monte-carlo-method-in-c/sequential_version/pi_approximation_monte_carlo_sequential_version.c
+stdlib.h
+-
+stdio.h
+-
+time.h
+-
+
+/home/rubenandrebarreiro/CLionProjects/lab-2-pi-approximation-monte-carlo-method-in-c/sequential_version/pi_approximation_monte_carlo_sequential_version.h
+
