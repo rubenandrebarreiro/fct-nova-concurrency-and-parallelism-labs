@@ -58,7 +58,7 @@ int main(const int argc, const char *argv[]) {
             simulation_version = (char *) malloc(strlen(argv[1]));
             strcpy(simulation_version, argv[1]);
 
-            // Convert the Simulation Version, to Lower Case
+            // Convert the argument for the Simulation Version Tag, to Lower Case
             for(int char_index = 0; simulation_version[char_index]; char_index++) {
 
                 simulation_version[char_index] = tolower(simulation_version[char_index]); // NOLINT(cppcoreguidelines-narrowing-conversions)
@@ -87,7 +87,8 @@ int main(const int argc, const char *argv[]) {
                     print_final_results_sequential_pi_approximation(num_points, inside_hit_counts);
 
                 }
-                else{
+                // If it were not given 3 arguments, in the prompt of the Command-Line Interface
+                else {
 
                     // Print the Error Messages for the Wrong Arguments' usage
                     print_error_arguments_messages();
@@ -98,7 +99,7 @@ int main(const int argc, const char *argv[]) {
                 }
 
             }
-                // If the Simulation Version chosen is the Parallel
+            // If the Simulation Version chosen is the Parallel
             else if(strcasecmp(simulation_version, PARALLEL_VERSION_TAG) == 0)  {
 
                 // If it were given 3 or 4 arguments, in the prompt of the Command-Line Interface
@@ -124,12 +125,13 @@ int main(const int argc, const char *argv[]) {
                         *num_threads = 1;
 
                     }
+                    // If it were not given 3 arguments, in the prompt of the Command-Line Interface
                     else {
 
-                        // Retrieve the number of Threads to be used, from the prompt of the Command-Line
+                        // Retrieve the number of Threads to be used, from the prompt of the Command-Line Interface
                         *num_threads = atoi(argv[3]); // NOLINT(cert-err34-c)
 
-                        // If the number of Threads, chosen, via the prompt of the Command-Line,
+                        // If the number of Threads, chosen, via the prompt of the Command-Line Interface,
                         // is greater than the number of Processors available
                         if(*num_threads > get_nprocs()) {
 
@@ -155,6 +157,8 @@ int main(const int argc, const char *argv[]) {
                     print_final_results_parallel_pi_approximation(num_points, num_threads, inside_hit_counts);
 
                 }
+                // If, for the Parallel Version, it were not given 3 neither 4 arguments,
+                // in the prompt of the Command-Line Interface
                 else{
 
                     // Print the Error Messages for the Wrong Arguments' usage
