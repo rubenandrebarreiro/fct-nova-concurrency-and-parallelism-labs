@@ -42,8 +42,8 @@ public class Main {
             // it will print an error message, providing a suggestion of the
             // arguments needed
             System.err.println("Error: Wrong arguments!!!");
-            System.err.println("Usage: PiMonteCarloMethodJava.jar program_version num_points [logging] [num_threads]");
-            System.err.println("Run: \"PiMonteCarloMethodJava help\" for help...");
+            System.err.println("Usage: java -jar pi-approximation-monte-carlo-method-in-java.jar program_version num_points [logging] [num_threads]");
+            System.err.println("Run: \"java -jar pi-approximation-monte-carlo-method-in-java.jar help\" for help...");
 
             // Wrong Command-Line argument(s)
             System.exit(1);
@@ -56,10 +56,11 @@ public class Main {
             if( (args.length == 1) && (args[0].equalsIgnoreCase("HELP")) ) {
 
                 // Print the suggestions of Usage of the Program
-                System.err.println("Usage: PiMonteCarloMethodJava program_version num_points [num_threads]");
+                System.err.println("Usage: java -jar pi-approximation-monte-carlo-method-in-java-jar program_version num_points [logging] [num_threads]");
                 System.err.println("program_version: [sequential,parallel]");
                 System.err.println("num_points: the number of points to simulate in the Monte Carlo Simulation");
-                System.err.println("[num_threads]: the number of threads to launch for the Monte Carlo Simulation" +
+                System.err.println("[logging]: the boolean flag to activate/deactivate the logs for the Monte Carlo Simulation");
+                System.err.println("[num_threads]: the number of threads to launch for the Monte Carlo Simulation " +
                                    "(only valid for the parallel version) [OPTIONAL]");
 
                 // Everything went fine
@@ -190,8 +191,8 @@ public class Main {
                         // Print Error's information, due to wrong arguments and
                         // the suggestions of Usage of the Program
                         System.err.println("Error: Wrong arguments!!!");
-                        System.err.println("Usage: PiMonteCarloMethodJava program_version num_points [num_threads]");
-                        System.err.println("Run: \"PiMonteCarloMethodJava help\" for help...");
+                        System.err.println("Usage: java -jar pi-approximation-monte-carlo-method-in-java.jar program_version num_points [logging] [num_threads]");
+                        System.err.println("Run: \"java -jar pi-approximation-monte-carlo-method-in-java.jar help\" for help...");
 
                         // Wrong Command-Line argument(s)
                         System.exit(1);
