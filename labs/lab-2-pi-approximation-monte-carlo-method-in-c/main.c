@@ -32,6 +32,7 @@
 // Print the Error Message for Wrong Arguments' Usage
 int print_error_arguments_messages() {
 
+    // Print the Error Messages
     fprintf(stderr, "%s", ERROR_WRONG_ARGS_MESSAGE);
     fprintf(stderr, "%s", ERROR_USAGE_MESSAGE_1);
     fprintf(stderr, "%s", ERROR_USAGE_MESSAGE_2);
@@ -49,6 +50,7 @@ int main(const int argc, const char *argv[]) {
     // If it were given 4 arguments, at most, in the prompt of the Command-Line Interface
     if(argc <= 4) {
 
+        // If it were given 3 arguments, at least, in the prompt of the Command-Line Interface
         if (argc >= 3) {
 
             // The Simulation Version (i.e., Sequential or Parallel)
@@ -175,6 +177,7 @@ int main(const int argc, const char *argv[]) {
             }
 
         }
+        // If it were given less than 3 arguments, in the prompt of the Command-Line Interface
         else {
 
             // Print the Error Messages for the Wrong Arguments' usage
@@ -189,6 +192,7 @@ int main(const int argc, const char *argv[]) {
         return 0;
 
     }
+    // If it were given more than 4 arguments, in the prompt of the Command-Line Interface
     else {
 
         // Print the Error Messages for the Wrong Arguments' usage
