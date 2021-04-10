@@ -30,7 +30,7 @@ void *parallel_pi_approximation(const long *arg_num_points, const int *arg_num_t
     total_num_points = (long *) malloc(sizeof(long));
     *total_num_points = *arg_num_points;
 
-    // The number Threads to be launched, in Parallel
+    // The number of Threads to be launched, in Parallel
     int *num_threads;
     num_threads = (int *) malloc(sizeof(int));
     *num_threads = *arg_num_threads;
