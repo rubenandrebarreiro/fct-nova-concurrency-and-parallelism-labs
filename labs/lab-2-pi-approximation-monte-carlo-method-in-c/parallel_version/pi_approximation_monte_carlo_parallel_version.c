@@ -199,12 +199,12 @@ int print_final_results_parallel_pi_approximation(const long *arg_num_points,
     total_num_points = (long *) malloc(sizeof(long));
     *total_num_points = *arg_num_points;
 
-    // The number of Points, within the Circle
+    // The number of Threads, used in the Simulation
     int *num_threads;
     num_threads = (int *) malloc(sizeof(int));
     *num_threads = *arg_num_threads;
 
-    // The Pi Estimation, by the computation of the Points within the Circle
+    // The number of Points, within the Circle
     long *inside_hits_count;
     inside_hits_count = (long *) malloc(sizeof(long));
     *inside_hits_count = *arg_inside_hits_count;
