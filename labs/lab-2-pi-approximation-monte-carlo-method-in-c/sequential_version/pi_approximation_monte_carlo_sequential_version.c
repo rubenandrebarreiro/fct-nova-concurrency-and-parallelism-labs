@@ -59,7 +59,7 @@ void *sequential_pi_approximation(const long *arg_num_points) {
 
 }
 
-// The method for printing the Results of the Pi Approximation, by the Sequential Version
+// The Method for printing the Results of the Pi Approximation, by the Sequential Version
 int print_final_results_sequential_pi_approximation(const long *arg_num_points,
                                                     const long *arg_inside_hits_count) {
 
