@@ -166,6 +166,7 @@ int main(const int argc, const char *argv[]) {
                 }
 
             }
+            // If the Program's Version is not Sequential neither Parallel
             else {
 
                 // Print the Error Messages for the Wrong Arguments' usage
