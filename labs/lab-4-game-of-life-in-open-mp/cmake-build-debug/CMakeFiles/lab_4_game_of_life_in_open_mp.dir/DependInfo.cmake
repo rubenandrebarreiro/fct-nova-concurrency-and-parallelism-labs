@@ -4,7 +4,10 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "/home/rubenandrebarreiro/git/fct-nova-concurrency-and-parallelism-labs/labs/lab-4-game-of-life-in-open-mp/main.c" "/home/rubenandrebarreiro/git/fct-nova-concurrency-and-parallelism-labs/labs/lab-4-game-of-life-in-open-mp/cmake-build-debug/CMakeFiles/lab_4_game_of_life_in_open_mp.dir/main.c.o"
+  "/home/rubenandrebarreiro/git/fct-nova-concurrency-and-parallelism-labs/labs/lab-4-game-of-life-in-open-mp/sequential_version/config.c" "/home/rubenandrebarreiro/git/fct-nova-concurrency-and-parallelism-labs/labs/lab-4-game-of-life-in-open-mp/cmake-build-debug/CMakeFiles/lab_4_game_of_life_in_open_mp.dir/sequential_version/config.c.o"
+  "/home/rubenandrebarreiro/git/fct-nova-concurrency-and-parallelism-labs/labs/lab-4-game-of-life-in-open-mp/sequential_version/game.c" "/home/rubenandrebarreiro/git/fct-nova-concurrency-and-parallelism-labs/labs/lab-4-game-of-life-in-open-mp/cmake-build-debug/CMakeFiles/lab_4_game_of_life_in_open_mp.dir/sequential_version/game.c.o"
+  "/home/rubenandrebarreiro/git/fct-nova-concurrency-and-parallelism-labs/labs/lab-4-game-of-life-in-open-mp/sequential_version/main.c" "/home/rubenandrebarreiro/git/fct-nova-concurrency-and-parallelism-labs/labs/lab-4-game-of-life-in-open-mp/cmake-build-debug/CMakeFiles/lab_4_game_of_life_in_open_mp.dir/sequential_version/main.c.o"
+  "/home/rubenandrebarreiro/git/fct-nova-concurrency-and-parallelism-labs/labs/lab-4-game-of-life-in-open-mp/sequential_version/mem.c" "/home/rubenandrebarreiro/git/fct-nova-concurrency-and-parallelism-labs/labs/lab-4-game-of-life-in-open-mp/cmake-build-debug/CMakeFiles/lab_4_game_of_life_in_open_mp.dir/sequential_version/mem.c.o"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
 

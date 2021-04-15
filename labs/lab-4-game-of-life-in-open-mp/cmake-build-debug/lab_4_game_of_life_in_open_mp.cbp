@@ -76,7 +76,25 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/home/rubenandrebarreiro/git/fct-nova-concurrency-and-parallelism-labs/labs/lab-4-game-of-life-in-open-mp/main.c">
+		<Unit filename="/home/rubenandrebarreiro/git/fct-nova-concurrency-and-parallelism-labs/labs/lab-4-game-of-life-in-open-mp/sequential_version/config.c">
+			<Option target="lab_4_game_of_life_in_open_mp"/>
+		</Unit>
+		<Unit filename="/home/rubenandrebarreiro/git/fct-nova-concurrency-and-parallelism-labs/labs/lab-4-game-of-life-in-open-mp/sequential_version/config.h">
+			<Option target="lab_4_game_of_life_in_open_mp"/>
+		</Unit>
+		<Unit filename="/home/rubenandrebarreiro/git/fct-nova-concurrency-and-parallelism-labs/labs/lab-4-game-of-life-in-open-mp/sequential_version/game.c">
+			<Option target="lab_4_game_of_life_in_open_mp"/>
+		</Unit>
+		<Unit filename="/home/rubenandrebarreiro/git/fct-nova-concurrency-and-parallelism-labs/labs/lab-4-game-of-life-in-open-mp/sequential_version/game.h">
+			<Option target="lab_4_game_of_life_in_open_mp"/>
+		</Unit>
+		<Unit filename="/home/rubenandrebarreiro/git/fct-nova-concurrency-and-parallelism-labs/labs/lab-4-game-of-life-in-open-mp/sequential_version/main.c">
+			<Option target="lab_4_game_of_life_in_open_mp"/>
+		</Unit>
+		<Unit filename="/home/rubenandrebarreiro/git/fct-nova-concurrency-and-parallelism-labs/labs/lab-4-game-of-life-in-open-mp/sequential_version/mem.c">
+			<Option target="lab_4_game_of_life_in_open_mp"/>
+		</Unit>
+		<Unit filename="/home/rubenandrebarreiro/git/fct-nova-concurrency-and-parallelism-labs/labs/lab-4-game-of-life-in-open-mp/sequential_version/mem.h">
 			<Option target="lab_4_game_of_life_in_open_mp"/>
 		</Unit>
 		<Unit filename="/home/rubenandrebarreiro/git/fct-nova-concurrency-and-parallelism-labs/labs/lab-4-game-of-life-in-open-mp/CMakeLists.txt">

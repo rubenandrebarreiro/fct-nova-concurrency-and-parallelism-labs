@@ -142,32 +142,113 @@ lab_4_game_of_life_in_open_mp/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab_4_game_of_life_in_open_mp.dir/build.make CMakeFiles/lab_4_game_of_life_in_open_mp.dir/build
 .PHONY : lab_4_game_of_life_in_open_mp/fast
 
-main.o: main.c.o
+sequential_version/config.o: sequential_version/config.c.o
 
-.PHONY : main.o
+.PHONY : sequential_version/config.o
 
 # target to build an object file
-main.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab_4_game_of_life_in_open_mp.dir/build.make CMakeFiles/lab_4_game_of_life_in_open_mp.dir/main.c.o
-.PHONY : main.c.o
+sequential_version/config.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab_4_game_of_life_in_open_mp.dir/build.make CMakeFiles/lab_4_game_of_life_in_open_mp.dir/sequential_version/config.c.o
+.PHONY : sequential_version/config.c.o
 
-main.i: main.c.i
+sequential_version/config.i: sequential_version/config.c.i
 
-.PHONY : main.i
+.PHONY : sequential_version/config.i
 
 # target to preprocess a source file
-main.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab_4_game_of_life_in_open_mp.dir/build.make CMakeFiles/lab_4_game_of_life_in_open_mp.dir/main.c.i
-.PHONY : main.c.i
+sequential_version/config.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab_4_game_of_life_in_open_mp.dir/build.make CMakeFiles/lab_4_game_of_life_in_open_mp.dir/sequential_version/config.c.i
+.PHONY : sequential_version/config.c.i
 
-main.s: main.c.s
+sequential_version/config.s: sequential_version/config.c.s
 
-.PHONY : main.s
+.PHONY : sequential_version/config.s
 
 # target to generate assembly for a file
-main.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab_4_game_of_life_in_open_mp.dir/build.make CMakeFiles/lab_4_game_of_life_in_open_mp.dir/main.c.s
-.PHONY : main.c.s
+sequential_version/config.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab_4_game_of_life_in_open_mp.dir/build.make CMakeFiles/lab_4_game_of_life_in_open_mp.dir/sequential_version/config.c.s
+.PHONY : sequential_version/config.c.s
+
+sequential_version/game.o: sequential_version/game.c.o
+
+.PHONY : sequential_version/game.o
+
+# target to build an object file
+sequential_version/game.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab_4_game_of_life_in_open_mp.dir/build.make CMakeFiles/lab_4_game_of_life_in_open_mp.dir/sequential_version/game.c.o
+.PHONY : sequential_version/game.c.o
+
+sequential_version/game.i: sequential_version/game.c.i
+
+.PHONY : sequential_version/game.i
+
+# target to preprocess a source file
+sequential_version/game.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab_4_game_of_life_in_open_mp.dir/build.make CMakeFiles/lab_4_game_of_life_in_open_mp.dir/sequential_version/game.c.i
+.PHONY : sequential_version/game.c.i
+
+sequential_version/game.s: sequential_version/game.c.s
+
+.PHONY : sequential_version/game.s
+
+# target to generate assembly for a file
+sequential_version/game.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab_4_game_of_life_in_open_mp.dir/build.make CMakeFiles/lab_4_game_of_life_in_open_mp.dir/sequential_version/game.c.s
+.PHONY : sequential_version/game.c.s
+
+sequential_version/main.o: sequential_version/main.c.o
+
+.PHONY : sequential_version/main.o
+
+# target to build an object file
+sequential_version/main.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab_4_game_of_life_in_open_mp.dir/build.make CMakeFiles/lab_4_game_of_life_in_open_mp.dir/sequential_version/main.c.o
+.PHONY : sequential_version/main.c.o
+
+sequential_version/main.i: sequential_version/main.c.i
+
+.PHONY : sequential_version/main.i
+
+# target to preprocess a source file
+sequential_version/main.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab_4_game_of_life_in_open_mp.dir/build.make CMakeFiles/lab_4_game_of_life_in_open_mp.dir/sequential_version/main.c.i
+.PHONY : sequential_version/main.c.i
+
+sequential_version/main.s: sequential_version/main.c.s
+
+.PHONY : sequential_version/main.s
+
+# target to generate assembly for a file
+sequential_version/main.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab_4_game_of_life_in_open_mp.dir/build.make CMakeFiles/lab_4_game_of_life_in_open_mp.dir/sequential_version/main.c.s
+.PHONY : sequential_version/main.c.s
+
+sequential_version/mem.o: sequential_version/mem.c.o
+
+.PHONY : sequential_version/mem.o
+
+# target to build an object file
+sequential_version/mem.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab_4_game_of_life_in_open_mp.dir/build.make CMakeFiles/lab_4_game_of_life_in_open_mp.dir/sequential_version/mem.c.o
+.PHONY : sequential_version/mem.c.o
+
+sequential_version/mem.i: sequential_version/mem.c.i
+
+.PHONY : sequential_version/mem.i
+
+# target to preprocess a source file
+sequential_version/mem.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab_4_game_of_life_in_open_mp.dir/build.make CMakeFiles/lab_4_game_of_life_in_open_mp.dir/sequential_version/mem.c.i
+.PHONY : sequential_version/mem.c.i
+
+sequential_version/mem.s: sequential_version/mem.c.s
+
+.PHONY : sequential_version/mem.s
+
+# target to generate assembly for a file
+sequential_version/mem.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab_4_game_of_life_in_open_mp.dir/build.make CMakeFiles/lab_4_game_of_life_in_open_mp.dir/sequential_version/mem.c.s
+.PHONY : sequential_version/mem.c.s
 
 # Help Target
 help:
@@ -178,9 +259,18 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... lab_4_game_of_life_in_open_mp"
-	@echo "... main.o"
-	@echo "... main.i"
-	@echo "... main.s"
+	@echo "... sequential_version/config.o"
+	@echo "... sequential_version/config.i"
+	@echo "... sequential_version/config.s"
+	@echo "... sequential_version/game.o"
+	@echo "... sequential_version/game.i"
+	@echo "... sequential_version/game.s"
+	@echo "... sequential_version/main.o"
+	@echo "... sequential_version/main.i"
+	@echo "... sequential_version/main.s"
+	@echo "... sequential_version/mem.o"
+	@echo "... sequential_version/mem.i"
+	@echo "... sequential_version/mem.s"
 .PHONY : help
 
 

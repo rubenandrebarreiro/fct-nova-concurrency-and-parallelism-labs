@@ -76,30 +76,75 @@ include CMakeFiles/lab_4_game_of_life_in_open_mp.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/lab_4_game_of_life_in_open_mp.dir/flags.make
 
-CMakeFiles/lab_4_game_of_life_in_open_mp.dir/main.c.o: CMakeFiles/lab_4_game_of_life_in_open_mp.dir/flags.make
-CMakeFiles/lab_4_game_of_life_in_open_mp.dir/main.c.o: ../main.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/rubenandrebarreiro/git/fct-nova-concurrency-and-parallelism-labs/labs/lab-4-game-of-life-in-open-mp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/lab_4_game_of_life_in_open_mp.dir/main.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/lab_4_game_of_life_in_open_mp.dir/main.c.o -c /home/rubenandrebarreiro/git/fct-nova-concurrency-and-parallelism-labs/labs/lab-4-game-of-life-in-open-mp/main.c
+CMakeFiles/lab_4_game_of_life_in_open_mp.dir/sequential_version/config.c.o: CMakeFiles/lab_4_game_of_life_in_open_mp.dir/flags.make
+CMakeFiles/lab_4_game_of_life_in_open_mp.dir/sequential_version/config.c.o: ../sequential_version/config.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/rubenandrebarreiro/git/fct-nova-concurrency-and-parallelism-labs/labs/lab-4-game-of-life-in-open-mp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/lab_4_game_of_life_in_open_mp.dir/sequential_version/config.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/lab_4_game_of_life_in_open_mp.dir/sequential_version/config.c.o -c /home/rubenandrebarreiro/git/fct-nova-concurrency-and-parallelism-labs/labs/lab-4-game-of-life-in-open-mp/sequential_version/config.c
 
-CMakeFiles/lab_4_game_of_life_in_open_mp.dir/main.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/lab_4_game_of_life_in_open_mp.dir/main.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/rubenandrebarreiro/git/fct-nova-concurrency-and-parallelism-labs/labs/lab-4-game-of-life-in-open-mp/main.c > CMakeFiles/lab_4_game_of_life_in_open_mp.dir/main.c.i
+CMakeFiles/lab_4_game_of_life_in_open_mp.dir/sequential_version/config.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/lab_4_game_of_life_in_open_mp.dir/sequential_version/config.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/rubenandrebarreiro/git/fct-nova-concurrency-and-parallelism-labs/labs/lab-4-game-of-life-in-open-mp/sequential_version/config.c > CMakeFiles/lab_4_game_of_life_in_open_mp.dir/sequential_version/config.c.i
 
-CMakeFiles/lab_4_game_of_life_in_open_mp.dir/main.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/lab_4_game_of_life_in_open_mp.dir/main.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/rubenandrebarreiro/git/fct-nova-concurrency-and-parallelism-labs/labs/lab-4-game-of-life-in-open-mp/main.c -o CMakeFiles/lab_4_game_of_life_in_open_mp.dir/main.c.s
+CMakeFiles/lab_4_game_of_life_in_open_mp.dir/sequential_version/config.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/lab_4_game_of_life_in_open_mp.dir/sequential_version/config.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/rubenandrebarreiro/git/fct-nova-concurrency-and-parallelism-labs/labs/lab-4-game-of-life-in-open-mp/sequential_version/config.c -o CMakeFiles/lab_4_game_of_life_in_open_mp.dir/sequential_version/config.c.s
+
+CMakeFiles/lab_4_game_of_life_in_open_mp.dir/sequential_version/game.c.o: CMakeFiles/lab_4_game_of_life_in_open_mp.dir/flags.make
+CMakeFiles/lab_4_game_of_life_in_open_mp.dir/sequential_version/game.c.o: ../sequential_version/game.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/rubenandrebarreiro/git/fct-nova-concurrency-and-parallelism-labs/labs/lab-4-game-of-life-in-open-mp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/lab_4_game_of_life_in_open_mp.dir/sequential_version/game.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/lab_4_game_of_life_in_open_mp.dir/sequential_version/game.c.o -c /home/rubenandrebarreiro/git/fct-nova-concurrency-and-parallelism-labs/labs/lab-4-game-of-life-in-open-mp/sequential_version/game.c
+
+CMakeFiles/lab_4_game_of_life_in_open_mp.dir/sequential_version/game.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/lab_4_game_of_life_in_open_mp.dir/sequential_version/game.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/rubenandrebarreiro/git/fct-nova-concurrency-and-parallelism-labs/labs/lab-4-game-of-life-in-open-mp/sequential_version/game.c > CMakeFiles/lab_4_game_of_life_in_open_mp.dir/sequential_version/game.c.i
+
+CMakeFiles/lab_4_game_of_life_in_open_mp.dir/sequential_version/game.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/lab_4_game_of_life_in_open_mp.dir/sequential_version/game.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/rubenandrebarreiro/git/fct-nova-concurrency-and-parallelism-labs/labs/lab-4-game-of-life-in-open-mp/sequential_version/game.c -o CMakeFiles/lab_4_game_of_life_in_open_mp.dir/sequential_version/game.c.s
+
+CMakeFiles/lab_4_game_of_life_in_open_mp.dir/sequential_version/main.c.o: CMakeFiles/lab_4_game_of_life_in_open_mp.dir/flags.make
+CMakeFiles/lab_4_game_of_life_in_open_mp.dir/sequential_version/main.c.o: ../sequential_version/main.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/rubenandrebarreiro/git/fct-nova-concurrency-and-parallelism-labs/labs/lab-4-game-of-life-in-open-mp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/lab_4_game_of_life_in_open_mp.dir/sequential_version/main.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/lab_4_game_of_life_in_open_mp.dir/sequential_version/main.c.o -c /home/rubenandrebarreiro/git/fct-nova-concurrency-and-parallelism-labs/labs/lab-4-game-of-life-in-open-mp/sequential_version/main.c
+
+CMakeFiles/lab_4_game_of_life_in_open_mp.dir/sequential_version/main.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/lab_4_game_of_life_in_open_mp.dir/sequential_version/main.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/rubenandrebarreiro/git/fct-nova-concurrency-and-parallelism-labs/labs/lab-4-game-of-life-in-open-mp/sequential_version/main.c > CMakeFiles/lab_4_game_of_life_in_open_mp.dir/sequential_version/main.c.i
+
+CMakeFiles/lab_4_game_of_life_in_open_mp.dir/sequential_version/main.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/lab_4_game_of_life_in_open_mp.dir/sequential_version/main.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/rubenandrebarreiro/git/fct-nova-concurrency-and-parallelism-labs/labs/lab-4-game-of-life-in-open-mp/sequential_version/main.c -o CMakeFiles/lab_4_game_of_life_in_open_mp.dir/sequential_version/main.c.s
+
+CMakeFiles/lab_4_game_of_life_in_open_mp.dir/sequential_version/mem.c.o: CMakeFiles/lab_4_game_of_life_in_open_mp.dir/flags.make
+CMakeFiles/lab_4_game_of_life_in_open_mp.dir/sequential_version/mem.c.o: ../sequential_version/mem.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/rubenandrebarreiro/git/fct-nova-concurrency-and-parallelism-labs/labs/lab-4-game-of-life-in-open-mp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/lab_4_game_of_life_in_open_mp.dir/sequential_version/mem.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/lab_4_game_of_life_in_open_mp.dir/sequential_version/mem.c.o -c /home/rubenandrebarreiro/git/fct-nova-concurrency-and-parallelism-labs/labs/lab-4-game-of-life-in-open-mp/sequential_version/mem.c
+
+CMakeFiles/lab_4_game_of_life_in_open_mp.dir/sequential_version/mem.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/lab_4_game_of_life_in_open_mp.dir/sequential_version/mem.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/rubenandrebarreiro/git/fct-nova-concurrency-and-parallelism-labs/labs/lab-4-game-of-life-in-open-mp/sequential_version/mem.c > CMakeFiles/lab_4_game_of_life_in_open_mp.dir/sequential_version/mem.c.i
+
+CMakeFiles/lab_4_game_of_life_in_open_mp.dir/sequential_version/mem.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/lab_4_game_of_life_in_open_mp.dir/sequential_version/mem.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/rubenandrebarreiro/git/fct-nova-concurrency-and-parallelism-labs/labs/lab-4-game-of-life-in-open-mp/sequential_version/mem.c -o CMakeFiles/lab_4_game_of_life_in_open_mp.dir/sequential_version/mem.c.s
 
 # Object files for target lab_4_game_of_life_in_open_mp
 lab_4_game_of_life_in_open_mp_OBJECTS = \
-"CMakeFiles/lab_4_game_of_life_in_open_mp.dir/main.c.o"
+"CMakeFiles/lab_4_game_of_life_in_open_mp.dir/sequential_version/config.c.o" \
+"CMakeFiles/lab_4_game_of_life_in_open_mp.dir/sequential_version/game.c.o" \
+"CMakeFiles/lab_4_game_of_life_in_open_mp.dir/sequential_version/main.c.o" \
+"CMakeFiles/lab_4_game_of_life_in_open_mp.dir/sequential_version/mem.c.o"
 
 # External object files for target lab_4_game_of_life_in_open_mp
 lab_4_game_of_life_in_open_mp_EXTERNAL_OBJECTS =
 
-lab_4_game_of_life_in_open_mp: CMakeFiles/lab_4_game_of_life_in_open_mp.dir/main.c.o
+lab_4_game_of_life_in_open_mp: CMakeFiles/lab_4_game_of_life_in_open_mp.dir/sequential_version/config.c.o
+lab_4_game_of_life_in_open_mp: CMakeFiles/lab_4_game_of_life_in_open_mp.dir/sequential_version/game.c.o
+lab_4_game_of_life_in_open_mp: CMakeFiles/lab_4_game_of_life_in_open_mp.dir/sequential_version/main.c.o
+lab_4_game_of_life_in_open_mp: CMakeFiles/lab_4_game_of_life_in_open_mp.dir/sequential_version/mem.c.o
 lab_4_game_of_life_in_open_mp: CMakeFiles/lab_4_game_of_life_in_open_mp.dir/build.make
 lab_4_game_of_life_in_open_mp: CMakeFiles/lab_4_game_of_life_in_open_mp.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/rubenandrebarreiro/git/fct-nova-concurrency-and-parallelism-labs/labs/lab-4-game-of-life-in-open-mp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking C executable lab_4_game_of_life_in_open_mp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/rubenandrebarreiro/git/fct-nova-concurrency-and-parallelism-labs/labs/lab-4-game-of-life-in-open-mp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking C executable lab_4_game_of_life_in_open_mp"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/lab_4_game_of_life_in_open_mp.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
