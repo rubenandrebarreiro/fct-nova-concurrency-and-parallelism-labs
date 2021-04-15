@@ -17,45 +17,63 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <unistd.h>
 #include "config.h"
 #include "game.h"
 
-int main(int argc, char *argv[])
-{
-  GameConfig *config;
-  Game *game;
-  size_t generation;
+int main(int argc, char *argv[]) {
 
-  config = game_config_new_from_cli(argc, argv);
-  if (!config)
-    exit(2);
+    GameConfig *config;
+    Game *game;
+    size_t generation;
 
-  game = game_new();
-  if (game_parse_board(game, config)) {
-    fprintf(stderr, "Could not read the board file.\n");
+    config = game_config_new_from_cli(argc, argv);
+
+    if (!config) {
+
+        exit(2);
+
+    }
+
+    game = game_new();
+
+    if (game_parse_board(game, config)) {
+
+        fprintf(stderr, "Could not read the board file.\n");
+
+        game_config_free(config);
+        game_free(game);
+
+        exit(1);
+
+    }
+
+    printf("Seed board:\n");
+    game_print_board(game);
+
+    for (generation = 1; generation <= game_config_get_generations(config); generation++) {
+
+        if (game_tick(game)) {
+
+            fprintf(stderr, "Error while advancing to the next generation.\n");
+            game_config_free(config);
+            game_free(game);
+
+        }
+
+        printf( "%s", "\033[2J");
+        printf("%s", "\033[0;0H");
+
+        usleep(500000); // TODO - Change for the flag given in the Command-Line
+
+        printf("\nGeneration %zu:\n", generation);
+        game_print_board(game);
+
+    }
 
     game_config_free(config);
     game_free(game);
 
-    exit(1);
-  }
+    return 0;
 
-  printf("Seed board:\n");
-  game_print_board(game);
-
-  for (generation = 1; generation <= game_config_get_generations(config); generation++) {
-    if (game_tick(game)) {
-      fprintf(stderr, "Error while advancing to the next generation.\n");
-      game_config_free(config);
-      game_free(game);
-    }
-
-    printf("\nGeneration %zu:\n", generation);
-    game_print_board(game);
-  }
-
-  game_config_free(config);
-  game_free(game);
-
-  return 0;
 }
