@@ -1,0 +1,1 @@
+/usr/bin/cc -g CMakeFiles/lab_4_game_of_life_in_open_mp.dir/main.c.o -o lab_4_game_of_life_in_open_mp 
