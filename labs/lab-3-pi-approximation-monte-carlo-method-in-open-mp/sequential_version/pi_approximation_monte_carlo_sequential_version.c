@@ -35,7 +35,7 @@ void *sequential_pi_approximation(const long *arg_num_points) {
     srandom(time(NULL));
 
     // For each Point to be generated, during the Simulation
-    for(int current_point = 0; current_point < *total_num_points; current_point++) {
+    for(long current_point = 0; current_point < *total_num_points; current_point++) {
 
         // Generate the random coordinates for the Point, using the Pseudo-Random Generator
         float point_x = ( ( (float) random() ) / (float)(RAND_MAX) );

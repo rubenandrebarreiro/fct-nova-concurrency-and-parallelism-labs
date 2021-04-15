@@ -103,7 +103,7 @@ void *parallel_pi_approximation(const long *arg_num_points, const int *arg_num_t
         if (thread_id < (*num_threads - 1)) {
 
             // For each Point to be generated, individually, in Parallel, by each Thread
-            for (int current_point = 0; current_point < *num_points_per_thread; current_point++) {
+            for (long current_point = 0; current_point < *num_points_per_thread; current_point++) {
 
                 // Generate the random coordinates for the Point, using the Pseudo-Random Generator,
                 // individually, in Parallel, by each Thread

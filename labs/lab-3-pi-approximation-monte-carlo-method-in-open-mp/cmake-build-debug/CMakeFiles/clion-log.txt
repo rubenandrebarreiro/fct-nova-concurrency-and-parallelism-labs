@@ -1,10 +1,4 @@
 /home/rubenandrebarreiro/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/211.6693.7/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/rubenandrebarreiro/git/fct-nova-concurrency-and-parallelism-labs/labs/lab-3-pi-approximation-monte-carlo-method-in-open-mp
--- The C compiler identification is GNU 9.3.0
--- Detecting C compiler ABI info
--- Detecting C compiler ABI info - done
--- Check for working C compiler: /usr/bin/cc - skipped
--- Detecting C compile features
--- Detecting C compile features - done
 -- Configuring done
 -- Generating done
 -- Build files have been written to: /home/rubenandrebarreiro/git/fct-nova-concurrency-and-parallelism-labs/labs/lab-3-pi-approximation-monte-carlo-method-in-open-mp/cmake-build-debug
